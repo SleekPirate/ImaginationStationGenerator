@@ -1,0 +1,96 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Definition of the design system. All colors, gradients, fonts, etc should be defined here. 
+All colors MUST be HSL. #E2DBD7 295 44% 16%
+*/
+
+@layer base {
+  :root {
+    --background: 295 44% 16%;
+    --foreground: 28 14% 88%;
+
+    --card: 295 37% 20%;
+    --card-foreground: 28 14% 88%;
+
+    --popover: 295 37% 16%;
+    --popover-foreground: 28 14% 88%;
+
+    --primary: 295 50% 45%;
+    --primary-foreground: 28 14% 88%;
+
+    --secondary: 295 37% 25%;
+    --secondary-foreground: 28 14% 88%;
+
+    --muted: 295 37% 25%;
+    --muted-foreground: 28 14% 70%;
+
+    --accent: 295 50% 55%;
+    --accent-foreground: 28 14% 88%;
+
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 28 14% 88%;
+
+    --border: 295 37% 30%;
+    --input: 295 37% 25%;
+    --ring: 295 50% 45%;
+
+    --radius: 0.75rem;
+
+    --sidebar-background: 295 37% 16%;
+    --sidebar-foreground: 28 14% 88%;
+    --sidebar-primary: 295 50% 45%;
+    --sidebar-primary-foreground: 28 14% 88%;
+    --sidebar-accent: 295 37% 25%;
+    --sidebar-accent-foreground: 28 14% 88%;
+    --sidebar-border: 295 37% 25%;
+    --sidebar-ring: 295 50% 45%;
+
+    /* Custom design tokens */
+    --glow: 295 50% 45%;
+    --glow-intense: 295 60% 55%;
+    --gradient-primary: linear-gradient(135deg, hsl(295, 50%, 35%) 0%, hsl(295, 50%, 55%) 100%);
+    --gradient-accent: linear-gradient(135deg, hsl(295, 37%, 20%) 0%, hsl(295, 50%, 45%) 100%);
+    --glass-bg: hsla(295, 37%, 25%, 0.7);
+    --glass-border: hsla(295, 50%, 45%, 0.3);
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground font-sans antialiased;
+  }
+
+  /* Custom animations and effects */
+  .glow {
+    box-shadow: 0 0 20px hsla(var(--glow), 0.4), 0 0 40px hsla(var(--glow), 0.2);
+  }
+
+  .glow-intense {
+    box-shadow: 0 0 30px hsla(var(--glow-intense), 0.6), 0 0 60px hsla(var(--glow-intense), 0.3);
+  }
+
+  .glass {
+    background: var(--glass-bg);
+    backdrop-filter: blur(10px);
+    border: 1px solid var(--glass-border);
+  }
+
+  @keyframes pulse-glow {
+    0%, 100% {
+      box-shadow: 0 0 20px hsla(var(--glow), 0.4);
+    }
+    50% {
+      box-shadow: 0 0 30px hsla(var(--glow-intense), 0.6);
+    }
+  }
+
+  .animate-pulse-glow {
+    animation: pulse-glow 2s ease-in-out infinite;
+  }
+}
